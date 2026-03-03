@@ -12,7 +12,7 @@ namespace API.Repositories
         {
             _context = context;
         }
-        public async Task<IEnumerable<Contato>> GetAllAsync()
+        public async Task<IReadOnlyCollection<Contato>> GetAllAsync()
         {
             return await _context.Contatos
                 .AsNoTracking()

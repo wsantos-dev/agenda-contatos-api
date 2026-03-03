@@ -16,10 +16,10 @@ namespace API.Services
             _repo = repo;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<ContatoReadDTO>> GetAllAsync()
+        public async Task<IReadOnlyCollection<ContatoReadDTO>> GetAllAsync()
         {
             var contatos = await _repo.GetAllAsync();
-            return _mapper.Map<IEnumerable<ContatoReadDTO>>(contatos);
+            return _mapper.Map<IReadOnlyCollection<ContatoReadDTO>>(contatos);
         }
 
         public async Task<ContatoReadDTO?> GetByIdAsync(Guid id)
@@ -38,7 +38,7 @@ namespace API.Services
             if (contatoExistenteTelefone != null)
                 throw new DuplicatePhoneNumberException(dto.Telefone);
 
-            
+
 
             var contato = _mapper.Map<Contato>(dto);
             contato.Id = Guid.NewGuid();

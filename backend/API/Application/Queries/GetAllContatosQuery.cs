@@ -3,7 +3,7 @@ using MediatR;
 
 namespace API.Application.Queries
 {
-    public class GetAllContatosQuery : IRequest<IEnumerable<ContatoReadDTO>>
+    public class GetAllContatosQuery : IRequest<IReadOnlyCollection<ContatoReadDTO>>
     {
     }
 }

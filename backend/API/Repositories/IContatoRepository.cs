@@ -4,7 +4,7 @@ namespace API.Repositories
 {
     public interface IContatoRepository
     {
-        Task<IEnumerable<Contato>> GetAllAsync();
+        Task<IReadOnlyCollection<Contato>> GetAllAsync();
         Task<Contato?> GetByIdAsync(Guid id);
         Task<Contato?> GetByEmailAsync(string email);
         Task<Contato?> GetByPhoneAsync(string phone);
